@@ -7,6 +7,7 @@ layout: new-bulletin/views/_master
 {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
+{% from "components/button/_macro.njk" import onsButton %}
 
 {% block header %}
     <header>
@@ -330,15 +331,21 @@ layout: new-bulletin/views/_master
         </div>
         <div class="ons-grid__col ons-col-7@m ons-push-1@m">
             <section id="section1">
-                <h2>1. Summary</h2>
-                <p>The Office for National Statistics (ONS) estimates that retail sales volumes (quantity bought) in Great Britain grew by 0.4% in August 2023, following a fall of 1.1% (revised from a fall of 1.2%) in July 2023, because of a rebound in sales volumes across supermarkets, clothing and textile stores. </p>
-                <p>When compared with their pre-coronavirus (COVID-19) level in February 2020, total retail sales volumes were 1.5% lower.</p>
+                <h2>1. Main points</h2>
+                <ul class="ons-list">
+                    <li class="ons-list__item"> The Office for National Statistics (ONS) estimates that retail sales volumes (quantity bought) in Great Britain grew by 0.4% in August 2023, following a fall of 1.1% (revised from a fall of 1.2%) in July 2023. </li>
+                    <li class="ons-list__item"> This was due to a rebound in sales volumes across supermarkets, clothing and textile stores.</li>
+                    <li class="ons-list__item"> When compared with their pre-coronavirus (COVID-19) level in February 2020, total retail sales volumes were 1.5% lower.</li>
+                </ul>
             </section>
             <section id="section2">
                 <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">2. Retail sales volumes over time</h2>
                 <p>Volume sales, seasonally adjusted, Great Britain, August 2019January 2023 to August 2023.</p>
                 <h3>Month-on-month % change</h3>
-               <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-volumes.jpg" alt="month on month sales volumes bar chart">  
+               <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-volumes.jpg" alt="month on month sales volumes bar chart"> 
+                <a class="download-datavis" href="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-volumes.jpg"  download="downloaded_retail-sales-volumes.jpg"><button type="button" class="ons-btn ons-btn--small dwnload"><span class="ons-btn__inner"><span class="ons-btn__text">Download chart</span></span></button></a>
+
+
                 <h3>Food and non-food stores sales bounce back partially</h3>
                 <p>Food stores sales volumes rose by 1.2% in August 2023, partially bouncing back from a fall of 2.6% in July 2023 when supermarkets reported that poor weather reduced sales onsummer clothing, while sales on food also fell back.</p>
                 <p>Total Non-food stores sales volumes (the total of department, clothing, household and other non-food stores) rose by 0.6% in August 2023, rebounding partly from a fall of 1.2% in July 2023 when businesses suggested that reduced footfall because of the poor weather had impacted sales volumes. <a href="https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/weather/learn-about/uk-past-events/summaries/mwr_2023_07_for_print_v1.pdf" target="_blank">The Met Office's monthly climate summary</a> reported that July 2023 was “provisionally the wettest July since 2009 and sixth wettestJuly on record since 1836”. Within non-food stores, clothing and household stores sales volumes grew by 2.3% and 1.1%, respectively, while department stores and other non-food stores both fell by 0.4%, in August 2023. </p>
@@ -350,6 +357,7 @@ layout: new-bulletin/views/_master
                 <p>Volume sales, seasonally adjusted, Great Britain, August 2023 and July 2023</p>
                 <h3>Month-on-month % change</h3>
                <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-growth.jpg" alt="month on month sales growth bar chart">
+                <a class="download-datavis" href="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-growth.jpg"  download="downloaded_retail-sales-volumes.jpg"><button type="button" class="ons-btn ons-btn--small dwnload"><span class="ons-btn__inner"><span class="ons-btn__text">Download chart</span></span></button></a>
                 <h3>Online retail sales fell in August 2023</h3>
                 <p>Online spending values decreased by 0.9% in August 2023 because of falls in non-store retailing and other non-food stores. The proportion of sales made via the internet fell to 26.9% in August 2023, having risen to 27.4% in July 2023. Feedback from retailers in July suggested that poor weather and increased online promotions had contributed to an increase in sales made over the internet.</p>
             </section>
@@ -358,6 +366,7 @@ layout: new-bulletin/views/_master
                  <p>Volume sales, seasonally adjusted, Great Britain, August 2023 and July 2023</p>
                 <h3>Month-on-month % change</h3>
                <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-online.jpg" alt="month on month online sales bar chart">
+                <a class="download-datavis" href="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-online.jpg"  download="downloaded_retail-sales-volumes.jpg"><button type="button" class="ons-btn ons-btn--small"><span class="ons-btn__inner"><span class="ons-btn__text">Download chart</span></span></button></a>
             </section>
             <section id="section5">
                 <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">5. Measuring the data</h2>
