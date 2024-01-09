@@ -4,6 +4,7 @@ Update the version in the path below to the version being used
 @import '../../../node_modules/@ons/design-system/scss/vars/_index.scss';
 @import '../../../node_modules/@ons/design-system/scss/helpers/_index.scss';
 @import '../../../node_modules/@ons/design-system/scss/utilities/_index.scss';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 /***********************************************************************
 Do not remove. Required for dynamic generation of survey summary page
@@ -20,7 +21,7 @@ Do not remove. Required for dynamic generation of survey summary page
 
 body {
     color: var(--ons-color-text);
-    font-family: opensans,helvetica neue,arial,sans-serif!important;
+    font-family: 'Open Sans', helvetica neue, arial, sans-serif!important;
     -webkit-font-feature-settings: "ss01";
     font-feature-settings: "ss01"
 }
