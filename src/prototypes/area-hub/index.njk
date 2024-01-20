@@ -1,13 +1,15 @@
 ---
 group: Website prototypes
-title: News led bulletin
-layout: new-bulletin/views/_master
+title: Area hub
+layout: area-hub/views/_master
 ---
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/phase-banner/_macro.njk" import onsPhaseBanner %}
 {% from "components/breadcrumbs/_macro.njk" import onsBreadcrumbs %}
 {% from "components/table-of-contents/_macro.njk" import onsTableOfContents %}
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/hero/_macro.njk" import onsHero %}
+{% from "components/autosuggest/_macro.njk" import onsAutosuggest %}
 
 {% block header %}
     <header>
@@ -231,8 +233,12 @@ layout: new-bulletin/views/_master
         </div>
     </header>   
 {% endblock %}
-{% block preMain %}
-    {{
+{% block pageContent %}
+<main id="main" role="main" tabindex="-1">
+    <section class="ons-hero ons-grid--gutterless">
+        <div class="ons-hero__container ons-container">
+            <div class="ons-hero__details ons-grid__col ons-col-8@m ons-col-10@s@m">
+                 {{
     onsBreadcrumbs({
         "ariaLabel": 'Breadcrumbs',
         "itemsList": [
@@ -241,177 +247,52 @@ layout: new-bulletin/views/_master
                 "text": 'Home'
             },
             {
-                "url": 'https://www.ons.gov.uk/businessindustryandtrade',
-                "text": 'Business, industry and trade'
-            },
-            {
-                "url": 'https://www.ons.gov.uk/businessindustryandtrade/retailindustry',
-                "text": 'Retail industry '
-            },
-            {
-                "url": 'https://www.ons.gov.uk/businessindustryandtrade/retailindustry/bulletins/retailsales/october2023',
-                "text": 'Retail sales, Great Britain'
+                "url": '/',
+                "text": 'Local statistics'
             }
         ]
     })
 }}
-{% endblock %}
+            <header>
+                
+                <h1 class="ons-hero__title ons-u-fs-xxxl">Explore local statistics</h1>
+            </header>
+            <p class="ons-hero__text">Find, visualise, compare and download statistics for areas within the United Kingdom.</p>
+             {{ onsAutosuggest({
+            "id": "country-of-birth-autosuggest",
+            "input": {
+                "label": {
+                    "text": "Search by area name or postcodse",
+                    "description": "Enter your own answer or select from suggestions",
+                    "id": "country-of-birth-label"
+                },
+                "autocomplete": "off"
+            },
+            "instructions": "Use up and down keys to navigate suggestions once you\'ve typed more than three characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+            "ariaYouHaveSelected": "You have selected",
+            "ariaMinChars": "Enter 3 or more characters for suggestions.",
+            "ariaOneResult": "There is one suggestion available.",
+            "ariaNResults": "There are {n} suggestions available.",
+            "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+            "moreResults": "Continue entering to improve suggestions",
+            "resultsTitle": "Suggestions",
+            "resultsTitleId": "area-name-suggestions",
+            "autosuggestData": "https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/area-name-suggestions.json",
+            "noResults": "No suggestions found. You can enter your own answer",
+            "typeMore": "Continue entering to get suggestions"
+        }) }}
 
-{% block main %}
-    <section class="ons-u-mb-xl">
-        <div class="ons-grid">
-            <div class="ons-grid__col ons-col-10@m">
-                <h1 class="ons-u-fs-xxxl"><span class="ons-u-fs-m ons-u-db ons-u-mb-xs ons-u-lighter">Bulletin</span>Retail Sales partially recovered in August 2023, following a sharp fall in July
-                </h1>
             </div>
-            <div class="ons-grid__col ons-col-2@m">
-                <div class="ons-grid--flex ons-grid--between@m ons-u-mt-s@m ons-u-mb-m@xxs ons-u-flex-jc-fe@m">
-                    <a href="https://uksa.statisticsauthority.gov.uk/about-the-authority/uk-statistical-system/types-of-official-statistics/" class="national-statistics__link ons-u-fs-xxxl">
-                    <img src="//cdn.ons.gov.uk/assets/images/ons-logo/kitemark/uksa-kitemark.svg" alt="UK Statistics Authority Kitemark" class="national-statistics__logo">
-                    </a>
-                </div>
-                </div>
-            </div>
-            <dl class="ons-metadata metadata__list ons-grid ons-grid--gutterless ons-u-cf ons-u-mb-m" title="Release date information" aria-label="Release date information">
-                <div class="ons-grid__col ons-col-4@m ons-u-mt-xs">
-                <dt class="ons-metadata__term ons-u-mr-xs">Released:</dt>
-                <dd class="ons-metadata__value ons-u-f-no">
-                <time datetime="2023-09-22T00:00:00.000Z">22 September 2023</time>
-                </dd>
-                </div>
-                <div class="ons-grid__col ons-col-8@m ons-u-mt-xs">
-                <dt class="ons-metadata__term ons-u-mr-xs">Next release:</dt>
-                <dd class="ons-metadata__value ons-u-f-no">
-                <time datetime="2023-10-20T00:00:00.000Z">20 October 2023</time>
-                —
-                <a href="#version-history">See version history</a>
-                </dd>
-                </div>
-            </dl>
         </div>
     </section>
 
+
+
 <div class="ons-grid__col ons-grid__col--sticky@m ons-col-4@m">
-            {{-
-                onsTableOfContents({
-                    "title": 'Contents',
-                    "ariaLabel": 'Sections in this page',
-                    "itemsList": [
-                        {
-                            "url": '#section1',
-                            "text": '1. Main points'
-                        },
-                        {
-                            "url": '#section2',
-                            "text": '2. Retail sales volumes over'
-                        },
-                        {
-                            "url": '#section3',
-                            "text": '3. Retail sales growth by volumes over time'
-                        },
-                        {
-                            "url": '#section4',
-                            "text": '4. Online retail sales growth by volumes over time'
-                        },
-                        {
-                            "url": '#section5',
-                            "text": '5. Measuring the data'
-                        },
-                        {
-                            "url": '#section6',
-                            "text": '6. Contact us'
-                        },
-                        {
-                            "url": '#section7',
-                            "text": '7. Retail sales datasets'
-                        }
-                    ]
-                })
-            }}
-        </div>
-        <div class="ons-grid__col ons-col-7@m ons-push-1@m">
-            <section id="section1">
-                <h2>1. Main points</h2>
-                <ul class="ons-list">
-                    <li class="ons-list__item"> The Office for National Statistics (ONS) estimates that retail sales volumes (quantity bought) in Great Britain grew by 0.4% in August 2023, following a fall of 1.1% (revised from a fall of 1.2%) in July 2023. </li>
-                    <li class="ons-list__item"> This was due to a rebound in sales volumes across supermarkets, clothing and textile stores.</li>
-                    <li class="ons-list__item"> When compared with their pre-coronavirus (COVID-19) level in February 2020, total retail sales volumes were 1.5% lower.</li>
-                </ul>
-            </section>
-            <section id="section2">
-                <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">2. Retail sales volumes over time</h2>
-                <p>Volume sales, seasonally adjusted, Great Britain, August 2019January 2023 to August 2023.</p>
-                <h3>Month-on-month % change</h3>
-               <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-volumes.jpg" alt="month on month sales volumes bar chart"> 
-                <a class="download-datavis" href="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-volumes.jpg"  download="downloaded_retail-sales-volumes.jpg"><button type="button" class="ons-btn ons-btn--small dwnload"><span class="ons-btn__inner"><span class="ons-btn__text">Download chart</span></span></button></a>
-
-
-                <h3>Food and non-food stores sales bounce back partially</h3>
-                <p>Food stores sales volumes rose by 1.2% in August 2023, partially bouncing back from a fall of 2.6% in July 2023 when supermarkets reported that poor weather reduced sales onsummer clothing, while sales on food also fell back.</p>
-                <p>Total Non-food stores sales volumes (the total of department, clothing, household and other non-food stores) rose by 0.6% in August 2023, rebounding partly from a fall of 1.2% in July 2023 when businesses suggested that reduced footfall because of the poor weather had impacted sales volumes. <a href="https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/weather/learn-about/uk-past-events/summaries/mwr_2023_07_for_print_v1.pdf" target="_blank">The Met Office's monthly climate summary</a> reported that July 2023 was “provisionally the wettest July since 2009 and sixth wettestJuly on record since 1836”. Within non-food stores, clothing and household stores sales volumes grew by 2.3% and 1.1%, respectively, while department stores and other non-food stores both fell by 0.4%, in August 2023. </p>
-                <h3>Fuel sales fall as prices rise</h3>
-                <p>Automotive fuel sales volumes fell by 1.2% in August 2023, following a rise of 0.9% in July 2023. The fall coincides with a rise in average fuel prices as recorded in the <a href="https://www.gov.uk/government/statistics/weekly-road-fuel-prices" target="_blank">Weekly road fuel prices</a>, suggesting that prices may have impacted sales volumes.</p>
-            </section>
-            <section id="section3">
-                <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">3. Retail sales growth by volumes over time</h2>
-                <p>Volume sales, seasonally adjusted, Great Britain, August 2023 and July 2023</p>
-                <h3>Month-on-month % change</h3>
-               <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-growth.jpg" alt="month on month sales growth bar chart">
-                <a class="download-datavis" href="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-growth.jpg"  download="downloaded_retail-sales-volumes.jpg"><button type="button" class="ons-btn ons-btn--small dwnload"><span class="ons-btn__inner"><span class="ons-btn__text">Download chart</span></span></button></a>
-                <h3>Online retail sales fell in August 2023</h3>
-                <p>Online spending values decreased by 0.9% in August 2023 because of falls in non-store retailing and other non-food stores. The proportion of sales made via the internet fell to 26.9% in August 2023, having risen to 27.4% in July 2023. Feedback from retailers in July suggested that poor weather and increased online promotions had contributed to an increase in sales made over the internet.</p>
-            </section>
-            <section id="section4">
-                <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">4. Online retail sales growth by volumes over time</h2>
-                 <p>Volume sales, seasonally adjusted, Great Britain, August 2023 and July 2023</p>
-                <h3>Month-on-month % change</h3>
-               <img src="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-online.jpg" alt="month on month online sales bar chart">
-                <a class="download-datavis" href="https://raw.githubusercontent.com/Joe-Dixon-ID/website-prototypes/main/src/prototypes/new-bulletin/img/retail-sales-online.jpg"  download="downloaded_retail-sales-volumes.jpg"><button type="button" class="ons-btn ons-btn--small"><span class="ons-btn__inner"><span class="ons-btn__text">Download chart</span></span></button></a>
-            </section>
-            <section id="section5">
-                <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">5. Measuring the data</h2>
-                <p><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/methodologies/retailsalesindexrsiqmi">Retail Sales Index Quality and Methodology Information (QMI)</a></p>
-            </section>
-            <section id="section6" aria-label="Bulletin author">
-                <header>
-                <h2 data-gtm-vis-first-on-screen6431828_5084="26542670" data-gtm-vis-total-visible-time6431828_5084="1000" data-gtm-vis-has-fired6431828_5084="1"><span class="section__content-number">6.</span> Contact us</h2>
-                </header>
-                <nav class="ons-related-content__navigation" aria-labelledby="contact-details">
-                <ul class="ons-list ons-list--bare ons-u-fs-r">
-                <li class="ons-list__item ons-u-mt-s">
-                <p class="ons-u-mb-no">Author</p>
-                <p>Rhys Lewis</p>
-                </li>
-                <li class="ons-list__item ons-u-mt-s">
-                <p class="ons-u-mb-no">Email</p>
-                <a href="mailto:retail.sales.enquiries@ons.gov.uk">retail.sales.enquiries@ons.gov.uk</a>
-                </li>
-                <li class="ons-list__item ons-u-mt-s">
-                <p class="ons-u-mb-no">Phone</p>
-                <a href="tel:+44%1633%455602">+44 1633 455602</a>
-                </li>
-                </ul>
-                </nav>
-                <div class="ons-u-mt-l ons-u-d-no@m">
-                <div class="ons-back-to">
-                <a href="#toc" class="ons-back-to__link">
-                <span class="ons-back-to__icon"><svg class="ons-svg-icon ons-u-mr-xs" width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true" role="presentation">
-                <path d="M0 8.07275L1.41 9.48275L7 3.90275V16.0728H9V3.90275L14.58 9.49275L16 8.07275L8 0.0727539L0 8.07275Z" fill="currentColor"></path>
-                </svg>
-                </span>Back to contents</a>
-                </div>
-                </div>
-            </section>            
-            <section id="section7">
-                <h2 class="ons-u-mt-xl ons-u-pb-no ons-u-pt-no">7. Retail sales datasets</h2>
-                <p><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexreferencetables">Retail Sales Index Quality and Methodology Information (QMI)</a><br>Dataset | Released 22 September 2023<br>A series of retail sales data for Great Britain in value and volume terms, seasonally and non-seasonally adjusted</p>
-                <p><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/poundsdatatotalretailsales">Retail Sales pounds data</a><br>Dataset | Released 22 September 2023<br>Total sales and average weekly spending estimates for each retail sector in Great Britain, in the thousands (British pounds)</p>
-                <p><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexinternetsales">Retail Sales Index internet sales</a><br>Dataset | Released 22 September 2023<br>Internet sales in Great Britain by store type, month and year</p>
-                <p><a href="https://www.ons.gov.uk/businessindustryandtrade/retailindustry/datasets/retailsalesindexinternetsales">Retail Sales Index categories and their percentage weights</a><br>Dataset | Released 24 March 2023<br>Retail sales categories and descriptions, and their percentage of all retailing in Great Britain.</p>
-            </section>
-        </div>
-
+</main>
 {% endblock %}
+
+
 
 {% block footer %}
     <footer class="print--hide padding-top--13">

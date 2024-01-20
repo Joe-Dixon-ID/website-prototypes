@@ -23,32 +23,5 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-
-  function handleScroll() {
-    const scrollPosition = window.scrollY;
   
-    // Iterate through each section
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.clientHeight;
-      const navLink = document.querySelector(`.ons-toc .ons-list__link[href="#${section.id}"]`);
-  
-      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-        // Section is in the viewport
-        navLink.classList.add("ons-toc__link-active");
-      } else {
-        // Section is not in the viewport
-        navLink.classList.remove("ons-toc__link-active");
-      }
-    });
-  }
-  
-  // Get all sections with an 'id' attribute
-  const sections = document.querySelectorAll('section[id]');
-  
-  // Listen for scroll events
-  window.addEventListener('scroll', handleScroll);
-  
-  // Trigger the function once to set initial state
-  handleScroll();
   
